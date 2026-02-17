@@ -9,18 +9,18 @@ export default async function CancelPage({
   const backHref = username ? `/tip/${username}` : "/";
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
-      <div className="text-center">
-        <div className="mb-4 text-6xl text-gray-400">&#10005;</div>
-        <h1 className="mb-2 text-2xl font-bold text-gray-900">
-          キャンセルされました
+    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center bg-retro-dark px-4">
+      <div className="border-4 border-retro-amber bg-retro-card p-8 text-center">
+        <div className="mb-4 text-4xl text-retro-amber">[X]</div>
+        <h1 className="mb-2 text-sm text-retro-amber">
+          CANCELLED
         </h1>
-        <p className="mb-6 text-gray-500">決済はキャンセルされました</p>
+        <p className="mb-6 text-xs text-retro-dim/70">PAYMENT CANCELLED</p>
         <Link
           href={backHref}
-          className="inline-block rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+          className="inline-block border-2 border-retro-green bg-retro-green px-6 py-3 text-xs text-retro-dark transition hover:bg-retro-amber hover:border-retro-amber"
         >
-          もう一度試す
+          {">"} RETRY
         </Link>
       </div>
     </div>

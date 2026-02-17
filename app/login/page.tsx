@@ -31,56 +31,56 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
-      <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lg">
-        <h1 className="mb-6 text-center text-2xl font-bold text-gray-900">
-          ログイン
+    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center bg-retro-dark px-4">
+      <div className="w-full max-w-md border-4 border-retro-green bg-retro-card p-8">
+        <h1 className="mb-8 text-center text-lg text-retro-green">
+          {">"} LOGIN
         </h1>
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              メールアドレス
+            <label className="mb-2 block text-xs text-retro-amber">
+              EMAIL:
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border-2 border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500"
+              className="w-full border-2 border-retro-green bg-retro-dark px-4 py-3 text-xs text-retro-green outline-none transition focus:border-retro-amber"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              パスワード
+            <label className="mb-2 block text-xs text-retro-amber">
+              PASSWORD:
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full rounded-xl border-2 border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500"
+              className="w-full border-2 border-retro-green bg-retro-dark px-4 py-3 text-xs text-retro-green outline-none transition focus:border-retro-amber"
             />
           </div>
 
           {error && (
-            <p className="text-center text-sm text-red-500">{error}</p>
+            <p className="text-center text-xs text-retro-red">{error}</p>
           )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-blue-600 py-3.5 text-lg font-bold text-white transition hover:bg-blue-700 disabled:opacity-50"
+            className="w-full border-2 border-retro-green bg-retro-green py-3 text-xs text-retro-dark transition hover:bg-retro-amber hover:border-retro-amber disabled:opacity-50"
           >
-            {loading ? "ログイン中..." : "ログイン"}
+            {loading ? ">> LOADING..." : ">> LOGIN >>"}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-500">
-          アカウントをお持ちでないですか？{" "}
-          <Link href="/register" className="text-blue-600 hover:underline">
-            登録する
+        <p className="mt-6 text-center text-xs text-retro-dim">
+          NO ACCOUNT?{" "}
+          <Link href="/register" className="text-retro-amber hover:underline">
+            REGISTER
           </Link>
         </p>
       </div>

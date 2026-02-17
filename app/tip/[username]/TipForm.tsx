@@ -49,13 +49,13 @@ export default function TipForm({
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
-      <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lg">
-        <h1 className="mb-2 text-center text-2xl font-bold text-gray-900">
-          {displayName} にチップを送る
+    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center bg-retro-dark px-4">
+      <div className="w-full max-w-md border-4 border-retro-green bg-retro-card p-8">
+        <h1 className="mb-2 text-center text-sm text-retro-green">
+          TIP TO {displayName}
         </h1>
-        <p className="mb-6 text-center text-sm text-gray-500">
-          金額を選択または入力してください
+        <p className="mb-6 text-center text-xs text-retro-dim/70">
+          SELECT AMOUNT
         </p>
 
         <div className="mb-4 grid grid-cols-2 gap-3">
@@ -63,46 +63,46 @@ export default function TipForm({
             <button
               key={value}
               onClick={() => handlePreset(value)}
-              className={`rounded-xl border-2 py-3 text-lg font-semibold transition ${
+              className={`border-2 py-3 text-sm transition ${
                 amount === value
-                  ? "border-blue-500 bg-blue-50 text-blue-700"
-                  : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
+                  ? "border-retro-amber bg-retro-amber text-retro-dark"
+                  : "border-retro-green bg-retro-dark text-retro-green hover:border-retro-amber hover:text-retro-amber"
               }`}
             >
-              ¥{value.toLocaleString()}
+              {value.toLocaleString()}
             </button>
           ))}
         </div>
 
         <div className="mb-6">
           <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-semibold text-gray-400">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-retro-amber">
               ¥
             </span>
             <input
               type="number"
               inputMode="numeric"
-              placeholder="カスタム金額"
+              placeholder="CUSTOM"
               value={amount}
               onChange={(e) => {
                 setAmount(e.target.value === "" ? "" : Number(e.target.value));
                 setError("");
               }}
-              className="w-full rounded-xl border-2 border-gray-200 py-3 pl-10 pr-4 text-lg font-semibold text-gray-900 outline-none transition focus:border-blue-500"
+              className="w-full border-2 border-retro-green bg-retro-dark py-3 pl-10 pr-4 text-sm text-retro-green outline-none transition placeholder:text-retro-green/30 focus:border-retro-amber"
             />
           </div>
         </div>
 
         {error && (
-          <p className="mb-4 text-center text-sm text-red-500">{error}</p>
+          <p className="mb-4 text-center text-xs text-retro-red">{error}</p>
         )}
 
         <button
           onClick={handleSubmit}
           disabled={loading || !amount}
-          className="w-full rounded-xl bg-blue-600 py-3.5 text-lg font-bold text-white transition hover:bg-blue-700 disabled:opacity-50"
+          className="w-full border-2 border-retro-green bg-retro-green py-3 text-xs text-retro-dark transition hover:bg-retro-amber hover:border-retro-amber disabled:opacity-50"
         >
-          {loading ? "処理中..." : "支払う"}
+          {loading ? ">> PROCESSING..." : ">> PAY >>"}
         </button>
       </div>
     </div>

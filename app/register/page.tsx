@@ -26,7 +26,6 @@ export default function RegisterPage() {
 
     const supabase = createClient();
 
-    // Check if username is taken
     const { data: existing } = await supabase
       .from("profiles")
       .select("id")
@@ -68,16 +67,16 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
-      <div className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lg">
-        <h1 className="mb-6 text-center text-2xl font-bold text-gray-900">
-          アカウント登録
+    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center bg-retro-dark px-4">
+      <div className="w-full max-w-md border-4 border-retro-green bg-retro-card p-8">
+        <h1 className="mb-8 text-center text-lg text-retro-green">
+          {">"} REGISTER
         </h1>
 
-        <form onSubmit={handleRegister} className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-6">
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              ユーザー名（英数字）
+            <label className="mb-2 block text-xs text-retro-amber">
+              USERNAME:
             </label>
             <input
               type="text"
@@ -85,16 +84,16 @@ export default function RegisterPage() {
               onChange={(e) => setUsername(e.target.value)}
               placeholder="makoto"
               required
-              className="w-full rounded-xl border-2 border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500"
+              className="w-full border-2 border-retro-green bg-retro-dark px-4 py-3 text-xs text-retro-green outline-none transition placeholder:text-retro-green/30 focus:border-retro-amber"
             />
-            <p className="mt-1 text-xs text-gray-400">
-              チップページのURLに使われます: /tip/{username.toLowerCase().replace(/[^a-z0-9_-]/g, "") || "username"}
+            <p className="mt-1 text-xs text-retro-dim/50">
+              /tip/{username.toLowerCase().replace(/[^a-z0-9_-]/g, "") || "username"}
             </p>
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              表示名
+            <label className="mb-2 block text-xs text-retro-amber">
+              DISPLAY NAME:
             </label>
             <input
               type="text"
@@ -102,26 +101,26 @@ export default function RegisterPage() {
               onChange={(e) => setDisplayName(e.target.value)}
               placeholder="Makoto"
               required
-              className="w-full rounded-xl border-2 border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500"
+              className="w-full border-2 border-retro-green bg-retro-dark px-4 py-3 text-xs text-retro-green outline-none transition placeholder:text-retro-green/30 focus:border-retro-amber"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              メールアドレス
+            <label className="mb-2 block text-xs text-retro-amber">
+              EMAIL:
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border-2 border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500"
+              className="w-full border-2 border-retro-green bg-retro-dark px-4 py-3 text-xs text-retro-green outline-none transition focus:border-retro-amber"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              パスワード
+            <label className="mb-2 block text-xs text-retro-amber">
+              PASSWORD:
             </label>
             <input
               type="password"
@@ -129,27 +128,27 @@ export default function RegisterPage() {
               onChange={(e) => setPassword(e.target.value)}
               minLength={6}
               required
-              className="w-full rounded-xl border-2 border-gray-200 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500"
+              className="w-full border-2 border-retro-green bg-retro-dark px-4 py-3 text-xs text-retro-green outline-none transition focus:border-retro-amber"
             />
           </div>
 
           {error && (
-            <p className="text-center text-sm text-red-500">{error}</p>
+            <p className="text-center text-xs text-retro-red">{error}</p>
           )}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-blue-600 py-3.5 text-lg font-bold text-white transition hover:bg-blue-700 disabled:opacity-50"
+            className="w-full border-2 border-retro-green bg-retro-green py-3 text-xs text-retro-dark transition hover:bg-retro-amber hover:border-retro-amber disabled:opacity-50"
           >
-            {loading ? "登録中..." : "登録する"}
+            {loading ? ">> LOADING..." : ">> REGISTER >>"}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-gray-500">
-          既にアカウントをお持ちですか？{" "}
-          <Link href="/login" className="text-blue-600 hover:underline">
-            ログイン
+        <p className="mt-6 text-center text-xs text-retro-dim">
+          HAVE ACCOUNT?{" "}
+          <Link href="/login" className="text-retro-amber hover:underline">
+            LOGIN
           </Link>
         </p>
       </div>

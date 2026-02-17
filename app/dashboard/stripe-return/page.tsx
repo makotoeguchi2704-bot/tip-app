@@ -36,34 +36,34 @@ export default async function StripeReturnPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
-      <div className="text-center">
+    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center bg-retro-dark px-4">
+      <div className="border-4 border-retro-green bg-retro-card p-8 text-center">
         {isOnboarded ? (
           <>
-            <div className="mb-4 text-6xl">&#10003;</div>
-            <h1 className="mb-2 text-2xl font-bold text-gray-900">
-              Stripe設定完了
+            <div className="mb-4 text-4xl text-retro-green">[OK]</div>
+            <h1 className="mb-2 text-sm text-retro-green">
+              STRIPE SETUP COMPLETE
             </h1>
-            <p className="mb-6 text-gray-500">
-              チップを受け取る準備ができました
+            <p className="mb-6 text-xs text-retro-dim/70">
+              READY TO RECEIVE TIPS
             </p>
           </>
         ) : (
           <>
-            <div className="mb-4 text-6xl text-yellow-500">&#9888;</div>
-            <h1 className="mb-2 text-2xl font-bold text-gray-900">
-              設定が未完了です
+            <div className="mb-4 text-4xl text-retro-amber">[!]</div>
+            <h1 className="mb-2 text-sm text-retro-amber">
+              SETUP INCOMPLETE
             </h1>
-            <p className="mb-6 text-gray-500">
-              Stripeの設定を完了してください
+            <p className="mb-6 text-xs text-retro-dim/70">
+              PLEASE COMPLETE STRIPE SETUP
             </p>
           </>
         )}
         <Link
           href="/dashboard"
-          className="inline-block rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+          className="inline-block border-2 border-retro-green bg-retro-green px-6 py-3 text-xs text-retro-dark transition hover:bg-retro-amber hover:border-retro-amber"
         >
-          ダッシュボードに戻る
+          {">"} DASHBOARD
         </Link>
       </div>
     </div>

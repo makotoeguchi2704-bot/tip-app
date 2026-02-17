@@ -22,13 +22,13 @@ export default async function TipPage({
 
   if (!profile.stripe_onboarded || !profile.stripe_account_id) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 px-4">
-        <div className="text-center">
-          <h1 className="mb-2 text-2xl font-bold text-gray-900">
+      <div className="flex min-h-[calc(100vh-60px)] items-center justify-center bg-retro-dark px-4">
+        <div className="border-4 border-retro-green bg-retro-card p-8 text-center">
+          <h1 className="mb-2 text-sm text-retro-green">
             {profile.display_name}
           </h1>
-          <p className="text-gray-500">
-            このユーザーはまだ決済設定が完了していません
+          <p className="text-xs text-retro-dim/70">
+            [ERROR] PAYMENT NOT CONFIGURED
           </p>
         </div>
       </div>

@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
+const pixel = Press_Start_2P({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-pixel",
 });
 
 export const metadata: Metadata = {
-  title: "Tip App",
-  description: "QRコードでチップを送れるアプリ",
+  title: "TIPBOX",
+  description: "QRコードでチップを送れるピクセルアートアプリ",
 };
 
 export default function RootLayout({
@@ -19,7 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${geist.variable} font-sans antialiased`}>
+      <body className={`${pixel.variable} antialiased`} style={{ fontFamily: "var(--font-pixel), monospace" }}>
+        <header className="border-b-4 border-retro-green bg-retro-dark py-4 text-center">
+          <Link href="/" className="text-2xl tracking-widest text-retro-green hover:text-retro-amber transition-colors sm:text-3xl">
+            TIPBOX
+          </Link>
+        </header>
         {children}
       </body>
     </html>

@@ -10,17 +10,17 @@ export default function QRDisplay({ url }: { url: string }) {
     QRCode.toDataURL(url, {
       width: 256,
       margin: 2,
-      color: { dark: "#000000", light: "#ffffff" },
+      color: { dark: "#00ff41", light: "#0a0a0a" },
     }).then(setQrDataUrl);
   }, [url]);
 
   return (
     <div className="text-center">
       {qrDataUrl && (
-        <img src={qrDataUrl} alt="QR Code" className="mx-auto mb-2" />
+        <img src={qrDataUrl} alt="QR Code" className="mx-auto mb-2 border-2 border-retro-green" />
       )}
-      <p className="text-xs text-gray-400">
-        QRコードをスキャンしてチップを送れます
+      <p className="text-xs text-retro-dim/50">
+        SCAN QR TO SEND TIP
       </p>
     </div>
   );

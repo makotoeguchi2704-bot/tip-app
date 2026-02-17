@@ -9,18 +9,18 @@ export default async function SuccessPage({
   const backHref = username ? `/tip/${username}` : "/";
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-green-50 to-gray-50 px-4">
-      <div className="text-center">
-        <div className="mb-4 text-6xl">&#10003;</div>
-        <h1 className="mb-2 text-2xl font-bold text-gray-900">
-          ありがとうございます！
+    <div className="flex min-h-[calc(100vh-60px)] items-center justify-center bg-retro-dark px-4">
+      <div className="border-4 border-retro-green bg-retro-card p-8 text-center">
+        <div className="mb-4 text-4xl text-retro-green">[OK]</div>
+        <h1 className="mb-2 text-sm text-retro-green">
+          THANK YOU!
         </h1>
-        <p className="mb-6 text-gray-500">チップが正常に送信されました</p>
+        <p className="mb-6 text-xs text-retro-dim/70">TIP SENT SUCCESSFULLY</p>
         <Link
           href={backHref}
-          className="inline-block rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+          className="inline-block border-2 border-retro-green bg-retro-green px-6 py-3 text-xs text-retro-dark transition hover:bg-retro-amber hover:border-retro-amber"
         >
-          戻る
+          {">"} BACK
         </Link>
       </div>
     </div>
